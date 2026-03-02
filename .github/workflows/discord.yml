@@ -9,8 +9,8 @@ on:
     types: [opened, edited, closed, reopened]
   issue_comment:
     types: [created]
-  #project_v2_item:
-#    types: [created, edited, converted, deleted, restored]
+  project_v2_item:
+    types: [created, edited, converted, deleted, restored]
   release:
     types: [published]
   workflow_dispatch: # Permite disparar manualmente se quiser testar
