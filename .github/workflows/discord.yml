@@ -9,13 +9,13 @@ on:
     types: [opened, edited, closed, reopened]
   issue_comment:
     types: [created]
-  project_v2_item:
-    types: [created, edited, converted, deleted, restored]
+  # O segredo do Project V2 é deixar as chaves vazias se não for filtrar tipos
+  project_v2_item: {} 
   release:
     types: [published]
-  workflow_dispatch: # Permite disparar manualmente se quiser testar
-  create: # Avisa quando criam branches ou tags novas
-  delete: # Avisa quando deletam branches ou tags
+  workflow_dispatch: 
+  create: 
+  delete: 
 
 jobs:
   discord_notification:
@@ -26,5 +26,10 @@ jobs:
         with:
           webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
           status: ${{ job.status }}
-          content: "**Nova atividade no GitHub!** \n**Evento:** ${{ github.event_name }} \n**Repositório:** ${{ github.repository }} \n**Autor:** ${{ github.actor }} \n**Detalhes:** Confira a movimentação em: https://github.com/${{ github.repository }}"
+          content: |
+            **🔔 Nova atividade no GitHub!**
+            **Evento:** ${{ github.event_name }}
+            **Repositório:** ${{ github.repository }}
+            **Autor:** ${{ github.actor }}
+            **Detalhes:** https://github.com/${{ github.repository }}
           color: "00ff00"
