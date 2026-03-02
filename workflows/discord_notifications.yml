@@ -24,7 +24,7 @@ jobs:
       - name: GitHub Actions Discord Webhook
         uses: nebularg/actions-discord-webhook@v1.0.0
         with:
-          webhook_url: ${{https://discord.com/api/webhooks/1477813257120120952/mc-OXly6Y5jv_UE2TdmS0vhYLG53sM5XTg8k5hRVRTmwOSfEhF6ei4UfyPzWxoVQPL-V}}
+          webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
           status: ${{ job.status }}
           content: "**Nova atividade no GitHub!** \n**Evento:** ${{ github.event_name }} \n**Repositório:** ${{ github.repository }} \n**Autor:** ${{ github.actor }} \n**Detalhes:** Confira a movimentação em: https://github.com/${{ github.repository }}"
           color: "00ff00"
